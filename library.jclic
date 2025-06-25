@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<JClicProject name="library" version="0.1.3" type="library">
+ <settings>
+  <title>Biblioteca principal</title>
+  <revision description="created" date="6/22/25" />
+  <description>
+   <p>desp</p>
+  </description>
+  <descriptors />
+  <skin file="@mini.xml" />
+  <cover file="img12-resized.jpg" />
+  <thumb file="img13-resized.jpg" />
+  <icon16 file="img14-resized.jpg" />
+  <icon72 file="img15-resized.jpg" />
+  <icon192 file="img16-resized.jpg" />
+  <meta_langs>es</meta_langs>
+  <descriptions>
+   <description language="es">
+    <p>desp</p>
+   </description>
+  </descriptions>
+  <license type="by-nc-sa" url="https://creativecommons.org/licenses/by-nc-sa/4.0" />
+ </settings>
+ <sequence>
+  <item id="main" name="main">
+   <jump action="STOP" id="forward" />
+   <jump action="RETURN" id="back" />
+  </item>
+  <item name="Juego de memoria" />
+ </sequence>
+ <activities>
+  <activity class="@panels.Menu" name="main">
+   <description>
+    <p>Menú principal</p>
+   </description>
+   <messages>
+    <cell type="initial">
+     <style />
+     <p>Menú principal</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="false">
+    <container bgColor="0xC0C0C0">
+     <counters time="false" actions="false" score="false" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true" />
+   </settings>
+  </activity>
+  <activity class="@memory.MemoryGame" name="Juego de memoria" code="">
+   <description />
+   <messages />
+   <settings margin="8" useOrder="true" dragCells="true" report="true" reportActions="true">
+    <container bgColor="0x33FF00">
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0x33FFCC" border="true">
+     <gradient source="0x000000" dest="0xFFFFFF" angle="0" />
+    </window>
+    <skin file="@green.xml" />
+   </settings>
+   <automation class="@arith.Arith">
+    <operand from="0" to="10" id="A" />
+    <operand from="0" to="10" id="B" />
+    <operations plus="true" minus="false" multiply="false" divide="false" />
+    <unknown result="true" first="false" last="false" operand="false" inverse="false" />
+    <result from="0" to="9999" duplicates="true" />
+   </automation>
+   <cells rows="2" cols="2" border="true" image="img15-resized.jpg" id="primary">
+    <style />
+    <shaper class="@Rectangular" cols="2" rows="2" />
+    <cell avoidOverlapping="true">
+     <p>1</p>
+    </cell>
+    <cell avoidOverlapping="true">
+     <p>2</p>
+    </cell>
+    <cell avoidOverlapping="true" />
+    <cell avoidOverlapping="true" border="true">
+     <style />
+     <p>4</p>
+    </cell>
+   </cells>
+   <cells rows="2" cols="2" cellWidth="50.0" cellHeight="30.0" border="true" id="secondary">
+    <style />
+   </cells>
+   <scramble times="32" />
+   <layout position="BUA" />
+  </activity>
+ </activities>
+ <mediaBag>
+  <media name="img12-resized.jpg" file="img12-resized.jpg" />
+  <media name="img13-resized.jpg" file="img13-resized.jpg" />
+  <media name="img14-resized.jpg" file="img14-resized.jpg" />
+  <media name="img15-resized.jpg" file="img15-resized.jpg" />
+  <media name="img16-resized.jpg" file="img16-resized.jpg" />
+ </mediaBag>
+</JClicProject>
+
